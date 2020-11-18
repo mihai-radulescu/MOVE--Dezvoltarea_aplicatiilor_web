@@ -8,6 +8,10 @@
 			$CURRENT_PAGE = "Contact"; 
 			$PAGE_TITLE = "Contact Us";
 			break;
+		case "/Project_daw/login.php":
+			$CURRENT_PAGE = "Login"; 
+			$PAGE_TITLE = "Login";
+			break;
 		default:
 			$CURRENT_PAGE = "Index";
 			$PAGE_TITLE = "Welcome to MOVE!";

@@ -14,8 +14,13 @@
 
 	<div class="d-flex justify-content-center">
 		<form action="index.php" method="post">
-		<input type="text" name="deliveryCode"> <br>
-		<input type="submit">
+			<div class="form-group justify-content-center">
+				<input type="text" name="deliveryCode" class="form-control"> <br>
+				
+				<div class="d-flex justify-content-center">
+					<input type="submit" class="btn btn-primary">
+				</div>	
+			</div>
 	</div>
 
 	<br>
