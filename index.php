@@ -12,13 +12,19 @@
 <div class="container" id="main-content">
 	<h2 style="text-align:center">Verifica un cod:</h2>
 
+	<?php
+		if(isset($_GET["error"]) and $_GET["error"] === "nocode"){
+			echo'<i style="color:red; text-align:center">This order dose not exist</i>';
+		}
+	?>
+
 	<div class="d-flex justify-content-center">
-		<form action="index.php" method="post">
+		<form action="includes/checkcode-inc.php" method="POST">
 			<div class="form-group justify-content-center">
 				<input type="text" name="deliveryCode" class="form-control"> <br>
 				
 				<div class="d-flex justify-content-center">
-					<input type="submit" class="btn btn-primary">
+					<input type="submit" class="btn btn-primary" value="Submit" name="submitCode">
 				</div>	
 			</div>
 	</div>

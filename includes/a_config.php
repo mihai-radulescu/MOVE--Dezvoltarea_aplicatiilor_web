@@ -12,6 +12,10 @@
 			$CURRENT_PAGE = "Login"; 
 			$PAGE_TITLE = "Login";
 			break;
+		case "/Project_daw/includes/checkcode-inc.php":
+			$CURRENT_PAGE = "Data"; 
+			$PAGE_TITLE = "Data";
+			break;
 		default:
 			$CURRENT_PAGE = "Index";
 			$PAGE_TITLE = "Welcome to MOVE!";

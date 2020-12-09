@@ -19,35 +19,50 @@
     <h2>Sign up</h2>
     <p>Please fill in your information.</p>
 
-    <form action="includes/signup-inc.php" methot="post">
+    <?php
+            if(isset($_GET["error"])){
+                switch($_GET["error"]){
+                    case "wrongsignup":
+                        echo'<i style="color:red">Passwords do not match</i>';
+                        break;
+                    case "userexists":
+                        echo'<i style="color:red">Username already taken</i>';
+                        break;
+                    default:
+                        break;
+                }
+            }
+        ?>
+
+    <form action="includes/signup-inc.php" method="post">
         <div class="form-group ">
             <label>Name</label>
-            <input type="text" name="name" class="form-control">
+            <input type="text" name="name" class="form-control" placeholder="John Doe" required>
         </div>
 
         <div class="form-group ">
             <label>Email</label>
-            <input type="email" name="email" class="form-control">
+            <input type="email" name="email" class="form-control" required>
         </div>
 
         <div class="form-group ">
             <label>Phone number</label>
-            <input type="tel" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="0123456789">
+            <input type="tel" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="0123456789" required>
         </div>
 
         <div class="form-group ">
             <label>Username</label>
-            <input type="text" name="username" class="form-control">
+            <input type="text" name="username" class="form-control" required>
         </div>
 
         <div class="form-group ">
             <label>Password</label>
-            <input type="password" name="password" class="form-control">
+            <input type="password" name="password" class="form-control" required>
         </div>
 
         <div class="form-group ">
             <label>Reapeat your password</label>
-            <input type="password" name="repeatPassword" class="form-control">
+            <input type="password" name="repeatPassword" class="form-control" required>
         </div>
 
         <div class="form-group">

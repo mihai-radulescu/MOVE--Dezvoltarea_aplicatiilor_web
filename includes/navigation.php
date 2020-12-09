@@ -31,10 +31,15 @@
 			echo '<li class="nav-item">';
 			echo '<a class="nav-link '. $active .'" href="addresses.php">Addresses</a>';
 			echo '</li>';
-
+			
+			echo '<li class="nav-item">';
+			echo '<a class="nav-link '. $active .'" href="orders.php">Orders</a>';
+			echo '</li>';
+			
 			echo '<li class="nav-item">';
 			echo '<a class="nav-link '. $active .'" href="includes/logout-inc.php">Logout</a>';
 			echo '</li>';
+
 		}
 	  ?>
 	</ul>

@@ -18,9 +18,11 @@
 <?php include("includes/design-top.php");?>
 <?php include("includes/navigation.php");?>
 
+<div class="container" id="main-content">
+
 <br>
-<div>
-    <a class="btn btn-success" href="address-form.php">+ Add an address</a>
+<div class="d-flex justify-content-center">
+    <a class="btn btn-success btn-lg btn-block" href="address-form.php" >+ Add an address</a>
 </div>
 <br>
 
@@ -51,7 +53,22 @@
                         <td><?php echo $row["region"];?></td>
                         <td><?php echo $row["city"];?></td>
                         <td><?php echo $row["street"];?></td>
-                        <td>Butoane</td>
+                        <td>
+                        <?php
+                            if(!isset($_POST["selectAddress"])){
+                        ?>
+                        <form method="POST" action="includes/addresses-inc.php">
+                            <input type="hidden" name="addressid" value="<?php echo $row["addressId"] ?>">
+                            <input type="submit" name="delAddress" value="Delete" class="btn btn-danger">
+                            <input type="submit" name="updateAddress" value="Update" class="btn btn-info" formaction="address-form.php">
+                        </form>
+                            <?php } else{ ?>
+                            <form method="POST" action="order-form.php">
+                                <input type="hidden" name="addressid" value="<?php echo $row["addressId"] ?>">
+                                <input type="submit" name="selectedAddress" value="Select" class="btn btn-success">
+                            </form>
+                            <?php } ?>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -62,6 +79,8 @@
 </div>
 
 <br>
+
+</div>
 
 <?php include("includes/footer.php");?>
 
