@@ -33,9 +33,30 @@
 			echo '</li>';
 			
 			echo '<li class="nav-item">';
-			echo '<a class="nav-link '. $active .'" href="orders.php">Orders</a>';
+			echo '<a class="nav-link '. $active .'" href="profile.php">Profile</a>';
 			echo '</li>';
 			
+			$userRole = $_SESSION["userRole"];
+			if($userRole === "courier"){
+			
+				echo '<li class="nav-item">';
+				echo '<a class="nav-link '. $active .'" href="deliver.php">Deliver</a>';
+				echo '</li>';
+			} 
+			else if($userRole === "admin"){
+
+				echo '<li class="nav-item">';
+				echo '<a class="nav-link '. $active .'" href="request.php">Cancel request</a>';
+				echo '</li>';
+
+			} 
+			else{
+
+				echo '<li class="nav-item">';
+				echo '<a class="nav-link '. $active .'" href="orders.php">Orders</a>';
+				echo '</li>';
+			}
+
 			echo '<li class="nav-item">';
 			echo '<a class="nav-link '. $active .'" href="includes/logout-inc.php">Logout</a>';
 			echo '</li>';

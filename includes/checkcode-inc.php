@@ -28,6 +28,9 @@ if(isset($_POST["submitCode"])){
 
     $row = checkCode($conn, $code);
     if($row !== false){
+
+        $data = readUser($conn, $row["courierId"]);
+        $courier = mysqli_fetch_assoc($data);
         
 ?>
 
@@ -43,7 +46,7 @@ if(isset($_POST["submitCode"])){
         <table class='table table-bordered table-striped table-sm'>
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>Courier Name</th>
                     <th>Country</th>
                     <th>Region</th>
                     <th>City</th>
@@ -54,7 +57,7 @@ if(isset($_POST["submitCode"])){
 
             <tbody>
                 <tr>
-                    <td><?php echo $i; ?></td>
+                    <td><?php echo $courier["name"] ?></td>
                     <td><?php echo $data["country"]; ?></td>
                     <td><?php echo $data["region"]; ?></td>
                     <td><?php echo $data["city"]; ?></td>
@@ -91,7 +94,9 @@ if(isset($_POST["submitCode"])){
     <br>
     <div class="d-flex justify-content-center">
         <form>
+            <input type="hidden" name="code" value= <?php echo $code;?>> 
 		    <input type="submit" class="btn btn-primary" formaction="../index.php" value="Go Home">
+            <input type="submit" class="btn btn-secondary" formaction="../pdf.php" formmethod="POST" value="Invoice">
         </form>
 	</div>
     <br>
